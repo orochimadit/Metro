@@ -1,0 +1,52 @@
+﻿@model IEnumerable<KelolaPegawai.Models.Pegawai>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alamat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TanggalLahir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Divisi.NamaDivisi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alamat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TanggalLahir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Divisi.NamaDivisi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NIP }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NIP }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NIP })
+        </td>
+    </tr>
+}
+
+</table>
